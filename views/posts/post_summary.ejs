@@ -1,0 +1,9 @@
+<!-- Contains html for rendering a post summary -->
+<!-- Add and format blog content here -->
+<h2> <a href="/blog/<%= post['slug']%>">
+		<%- post['title'] %>
+</a>
+<a href="/blog/edit/<%= post['slug']%>"><img src="../../images/edit.png"></a> 
+<a href="/blog/delete/<%= post['slug']%>"><img src="../../images/waste-bin.png"></a>
+</h2> 
+<div><%- post['summary'] %></div>
