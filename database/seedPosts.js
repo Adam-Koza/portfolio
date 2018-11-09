@@ -85,12 +85,12 @@ var posts = [
 // seeding to mongodb
 var done = 0;
 
-for (var i = 0; i < posts.length; ++i) {
-    posts[i].save((err, result) => {
-        done++;
-        if (done === posts.length) {
-            mongoose.disconnect();
-        }
-    });
-}
+//for (var i = 0; i < posts.length; ++i) {
+    //posts[i].save((err, result) => {
+    //    done++;
+    //    if (done === posts.length) {
+    //        mongoose.disconnect();
+    //    }
+    //});
+//}
 

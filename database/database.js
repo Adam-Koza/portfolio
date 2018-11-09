@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 
 // const connectionString = `mongodb://${user}:${password}@${server}/${dbName}`;
 
-const connectionString = "mongodb://localhost/blogapp"
+const connectionString = "mongodb://localhost/portfolio"
 
 const connect = () => {
 	mongoose.connect(connectionString)
