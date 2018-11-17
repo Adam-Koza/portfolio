@@ -1,0 +1,86 @@
+<html>
+
+
+
+
+
+    <body>
+    
+        <div id="portfolios">
+
+        </div>
+
+        <form id="add_portfolio">
+            Name:
+            <input id="name" type="text" name="name">
+            Symbol:
+            <input id="symbol" type="text" name="symbol">
+            Quantity:
+            <input id="quantity" type="text" name="quantity">
+            Buy Price:
+            <input id="buyPrice" type="text" name="buy price">
+            <button id="your-id">Create</button>
+        </form>
+
+
+
+    </body>
+
+    <script>
+
+        // Grab all portfolios
+        // Api
+	    fetch('http://localhost:3000/portfolio')
+		.then(function (response) {
+            console.log(response)
+			return response.json();
+		})
+		.then(function (myJson) {
+            console.log(myJson);
+            // display the result in the div.
+            var res = myJson.result;
+            console.log(res);
+			document.getElementById("portfolios").innerHTML = res;
+		})
+		.catch((error) => {
+			console.log(error)
+		});
+
+
+
+
+
+        // Create new portfolio
+
+        var form = document.getElementById("add_portfolio");
+
+        document.getElementById("add_portfolio").addEventListener("click", function (){
+            fetch('http://localhost:3000/portfolio', {
+                method: 'post',
+                headers: {
+                    'Accept': 'application/json, text/plain, */*',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: document.getElementById("name").value, 
+                    holdings: [{
+                        symbol: document.getElementById("symbol").value,
+                        quantity: document.getElementById("quantity").value,
+                        buyPrice: document.getElementById("buyPrice").value 
+                    }]
+                })
+            })
+            .then(res=>res.json())
+            .then(res => console.log(res));
+
+            
+        // form.submit();
+        });
+    
+    
+    
+    </script>
+
+
+
+</html>

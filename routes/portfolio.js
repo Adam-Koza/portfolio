@@ -1,6 +1,12 @@
 module.exports = (app) => {
     const portfolio = require('../controllers/portfolio.js');
 
+    app.use(function(req, res, next) {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+        next();
+    });
+
     // Create a new portfolio
     app.post('/portfolio', portfolio.create);
 
