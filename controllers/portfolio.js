@@ -3,9 +3,9 @@ const Portfolio = require('../models/portfolio.js');
 // Create and Save a new portfolio
 exports.create = (req, res, next) => {
     // Validate request
-    if(!req.body.content) {
+    if(!req.body.holdings) {
         return res.status(400).send({
-            message: "portfolio name can not be empty"
+            message: "portfolio holdings can not be empty"
         });
     }
 
@@ -21,7 +21,7 @@ exports.create = (req, res, next) => {
         res.send(data);
     }).catch(err => {
         res.status(500).send({
-            message: err.message || "Some error occurred while creating the Portfolio."
+            message: err.message || "Error occurred while creating the Portfolio."
         });
     });
 };
@@ -33,7 +33,7 @@ exports.findAll = (req, res, next) => {
         res.send(portfolios);
     }).catch(err => {
         res.status(500).send({
-            message: err.message || "Some error occurred while retrieving portfolios."
+            message: err.message || "Error occurred while retrieving portfolios."
         });
     });
 };
