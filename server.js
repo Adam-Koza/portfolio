@@ -27,9 +27,7 @@ mongoose.connect(dbConfig.url, {
 });
 
 // define a simple route
-app.get('/', (req, res) => {
-    res.sendFile('index.html');
-});
+app.use(express.static("public"));
 
 // Require Notes routes
 require('./routes/portfolio.js')(app);
