@@ -26,7 +26,7 @@ mongoose.connect(dbConfig.url, {
     process.exit();
 });
 
-// define a simple route
+// Serve BootStrap HTML template.
 app.use(express.static("public"));
 
 // Require Notes routes
