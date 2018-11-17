@@ -6,7 +6,7 @@ router.get('/', function(req, res, next) {
   res.render('index', {
     title: 'Blog Post App',
     app: {
-      message: 'Welcome to my blog post app',
+      message: 'Coin Market Cap',
     }
   });
 });
