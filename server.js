@@ -29,7 +29,7 @@ mongoose.connect(dbConfig.url, {
 // Serve BootStrap HTML template.
 app.use(express.static("public"));
 
-// Require Notes routes
+// Require portfolio routes
 require('./routes/portfolio.js')(app);
 
 
